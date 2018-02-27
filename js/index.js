@@ -15,8 +15,6 @@ export default class App extends Component {
   }
 }
 
-// About, Faves, Schedule, Sessions, Speakers
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
