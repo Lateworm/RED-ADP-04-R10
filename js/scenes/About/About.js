@@ -1,12 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Text, View } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import { styles } from "./styles";
 
-const About = () => (
+const About = ({ data }) => (
   <View>
-    <Text>About Scene. How about that?</Text>
+    <FlatList
+      data={data}
+      renderItem={({ item }) => (
+        <Text>{`${item.title} ${item.description}`}</Text>
+      )}
+      keyExtractor={item => item.title}
+    />
   </View>
 );
 
