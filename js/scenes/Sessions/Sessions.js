@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { Text, View } from "react-native";
 import { styles } from "./styles";
 
-const Sessions = () => (
+const Sessions = ({ data }) => (
   <View>
     <Text>Sessions Scene.</Text>
   </View>
