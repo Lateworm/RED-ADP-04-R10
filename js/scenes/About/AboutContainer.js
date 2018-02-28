@@ -2,16 +2,14 @@ import React, { Component } from "react";
 import { Text, View } from "react-native";
 import PropTypes from "prop-types";
 
+// import Redux components
+import { connect } from "react-redux";
+import { fetchConductData } from "../../redux/modules/about";
+
+// import presentation components
 import About from "./About";
 
 class AboutContainer extends Component {
-  constructor() {
-    super();
-    this.state = {
-      data: [] // future home of Code of Conduct data
-    };
-  }
-
   static route = {
     navigationBar: {
       title: "About"
@@ -19,20 +17,24 @@ class AboutContainer extends Component {
   };
 
   componentDidMount() {
-    // TODO: abstract this to a reducer?
-    fetch("https://r10app-95fea.firebaseio.com/code_of_conduct.json")
-      .then(res => res.json())
-      .then(data => this.setState({ data }))
-      .catch(err => console.log(err));
+    this.props.dispatch(fetchConductData());
   }
 
   render() {
+    const { conductData, isLoading } = this.props;
     return (
       <View>
-        <About data={this.state.data} />
+        <About data={conductData} isLoading={isLoading} />
       </View>
     );
   }
 }
 
-export default AboutContainer;
+const mapStateToProps = state => {
+  return {
+    conductData: state.about.conductData,
+    isLoading: state.about.isLoading
+  };
+};
+
+export default connect(mapStateToProps)(AboutContainer);
