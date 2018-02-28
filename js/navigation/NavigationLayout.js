@@ -16,7 +16,6 @@ const { black, white, red, purple, mediumGrey } = colors;
 class NavigationLayout extends Component {
   render() {
     return (
-      // TODO: set initial to schedule before submitting
       <TabNav
         id="main"
         navigatorUID="main"

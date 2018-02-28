@@ -15,7 +15,7 @@ const Router = createRouter(() => ({
   faves: () => Faves,
   schedule: () => Schedule,
   sessions: () => Sessions,
-  speakers: () => Spealers
+  speakers: () => Speakers
 }));
 
 export default Router;
