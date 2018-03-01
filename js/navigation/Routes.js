@@ -9,13 +9,13 @@ import NavigationLayout from "./NavigationLayout";
 import { createRouter } from "@expo/ex-navigation";
 
 const Router = createRouter(() => ({
-  layout: () => NavigationLayout,
+	layout: () => NavigationLayout,
 
-  about: () => About,
-  faves: () => Faves,
-  schedule: () => Schedule,
-  sessions: () => Sessions,
-  speakers: () => Speakers
+	about: () => About,
+	faves: () => Faves,
+	schedule: () => Schedule,
+	session: () => Sessions,
+	speakers: () => Speakers
 }));
 
 export default Router;

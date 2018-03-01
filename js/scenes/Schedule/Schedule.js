@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { SectionList, Text, TouchableHighlight, View } from "react-native";
+
+// import presentation components
 import { styles } from "./styles";
 import { colors } from "../../config/styles.js";
 
@@ -18,11 +20,9 @@ const Schedule = ({ data }) => (
 						onPress={() => goToSession("schedule", item)}
 					>
 						<View>
-							<View style={styles.container}>
-								<Text style={styles.subtitle}>{item.title}</Text>
-							</View>
-							<View style={styles.locationContainer}>
-								<Text style={styles.location}>{item.location}</Text>
+							<View>
+								<Text>{item.title}</Text>
+								<Text>{item.location}</Text>
 							</View>
 						</View>
 					</TouchableHighlight>

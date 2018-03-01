@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 // import Redux components
 import { connect } from "react-redux";
-import { fetchSessionsData } from "../../redux/modules/sessions";
+import { fetchSpeakersData } from "../../redux/modules/speakers";
 
 // import presentation components
 import Sessions from "./Sessions";
@@ -11,17 +11,22 @@ import Sessions from "./Sessions";
 class SessionsContainer extends Component {
 	static route = {
 		navigationBar: {
-			title: "Sessions"
+			title: "Session"
 		}
 	};
 
 	componentDidMount() {
-		this.props.dispatch(fetchSessionsData());
+		this.props.dispatch(fetchSpeakersData());
 	}
 
 	render() {
 		const { sessionsData, isLoading } = this.props;
-		return <Sessions data={sessionsData} isLoading={isLoading} />;
+		return (
+			<Sessions
+				session={this.props.route.params.session}
+				isLoading={isLoading}
+			/>
+		);
 	}
 }
 

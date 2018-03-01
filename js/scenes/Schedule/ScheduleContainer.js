@@ -8,7 +8,7 @@ import { fetchSessionsData } from "../../redux/modules/sessions";
 // import presentation components
 import Schedule from "./Schedule";
 
-class SessionsContainer extends Component {
+class ScheduleContainer extends Component {
 	static route = {
 		navigationBar: {
 			title: "Schedule"
@@ -25,6 +25,12 @@ class SessionsContainer extends Component {
 	}
 }
 
+ScheduleContainer.propTypes = {
+	sessionsData: PropTypes.array.isRequired,
+	dispatch: PropTypes.func.isRequired,
+	isLoading: PropTypes.bool.isRequired
+};
+
 const mapStateToProps = state => {
 	return {
 		sessionsData: state.sessions.sessionsData,
@@ -32,10 +38,4 @@ const mapStateToProps = state => {
 	};
 };
 
-SessionsContainer.propTypes = {
-	sessionsData: PropTypes.array.isRequired,
-	dispatch: PropTypes.func.isRequired,
-	isLoading: PropTypes.bool.isRequired
-};
-
-export default connect(mapStateToProps)(SessionsContainer);
+export default connect(mapStateToProps)(ScheduleContainer);
