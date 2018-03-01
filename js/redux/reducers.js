@@ -9,10 +9,10 @@ import SessionsReducer from "./modules/sessions";
 import SpeakersReducer from "./modules/speakers";
 
 export default combineReducers({
-  navigation: NavigationReducer,
-  about: AboutReducer,
-  // faves: FavesReducer,
-  schedule: ScheduleReducer,
-  sessions: SessionsReducer,
-  speakers: SpeakersReducer
+	navigation: NavigationReducer,
+	about: AboutReducer,
+	// faves: FavesReducer,
+	schedule: ScheduleReducer,
+	sessions: SessionsReducer,
+	speakers: SpeakersReducer
 });

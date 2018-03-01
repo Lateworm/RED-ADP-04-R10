@@ -4,14 +4,14 @@ import PropTypes from "prop-types";
 import Faves from "./Faves";
 
 class FavesContainer extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
+	constructor() {
+		super();
+		this.state = {};
+	}
 
-  render() {
-    return <Faves />;
-  }
+	render() {
+		return <Faves />;
+	}
 }
 
 export default FavesContainer;

@@ -9,37 +9,41 @@ import moment from "moment";
 import { goToSession } from "../../navigation/NavigationHelper";
 
 const Schedule = ({ data }) => (
-  <View>
-    <SectionList
-      renderItem={({ item }) => {
-        return (
-          <TouchableHighlight
-            underlayColor={colors.lightGrey}
-            onPress={() => goToSession("schedule", item)}
-          >
-            <View>
-              <View style={styles.container}>
-                <Text style={styles.subtitle}>{item.title}</Text>
-              </View>
-              <View style={styles.locationContainer}>
-                <Text style={styles.location}>{item.location}</Text>
-              </View>
-            </View>
-          </TouchableHighlight>
-        );
-      }}
-      keyExtractor={(item, index) => index}
-      ItemSeparatorComponent={() => {
-        return <View style={styles.separator} />;
-      }}
-      renderSectionHeader={({ section }) => (
-        <Text style={styles.title}>
-          {moment.unix(section.title).format("LT")}
-        </Text>
-      )}
-      sections={data}
-    />
-  </View>
+	<View>
+		<SectionList
+			renderItem={({ item }) => {
+				return (
+					<TouchableHighlight
+						underlayColor={colors.lightGrey}
+						onPress={() => goToSession("schedule", item)}
+					>
+						<View>
+							<View style={styles.container}>
+								<Text style={styles.subtitle}>{item.title}</Text>
+							</View>
+							<View style={styles.locationContainer}>
+								<Text style={styles.location}>{item.location}</Text>
+							</View>
+						</View>
+					</TouchableHighlight>
+				);
+			}}
+			keyExtractor={(item, index) => index}
+			ItemSeparatorComponent={() => {
+				return <View style={styles.separator} />;
+			}}
+			renderSectionHeader={({ section }) => (
+				<Text style={styles.title}>
+					{moment.unix(section.title).format("LT")}
+				</Text>
+			)}
+			sections={data}
+		/>
+	</View>
 );
+
+Schedule.propTypes = {
+	data: PropTypes.array.isRequired
+};
 
 export default Schedule;
