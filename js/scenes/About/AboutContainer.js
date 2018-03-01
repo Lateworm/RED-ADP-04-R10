@@ -17,7 +17,7 @@ class AboutContainer extends Component {
 	};
 
 	componentDidMount() {
-		this.props.dispatch(fetchConductData);
+		this.props.dispatch(fetchConductData());
 	}
 
 	render() {

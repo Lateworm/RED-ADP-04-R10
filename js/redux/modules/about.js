@@ -8,12 +8,10 @@ export const conductGetLoading = () => ({
 	type: CONDUCT_GET_LOADING
 });
 
-export function conductGet(conductData) {
-	return {
-		type: CONDUCT_GET_DATA,
-		payload: conductData
-	};
-}
+export const conductGet = conductData => ({
+	type: CONDUCT_GET_DATA,
+	payload: conductData
+});
 
 export const conductGetError = err => ({
 	type: CONDUCT_GET_ERROR,
@@ -46,7 +44,7 @@ export default (state = initialState, action) => {
 	case CONDUCT_GET_ERROR:
 		return {
 			...state,
-			errorMessage: action.error,
+			errorMessage: action.payload,
 			isLoading: false
 		};
 	default:
@@ -59,14 +57,9 @@ export default (state = initialState, action) => {
 export const fetchConductData = () => {
 	return dispatch => {
 		dispatch(conductGetLoading());
-
 		fetch("https://r10app-95fea.firebaseio.com/code_of_conduct.json")
 			.then(res => res.json())
-			.then(data => {
-				dispatch(conductGet(data));
-			})
-			.catch(err => {
-				dispatch(conductGetError(err));
-			});
+			.then(data => dispatch(conductGet(data)))
+			.catch(err => dispatch(conductGetError(err)));
 	};
 };
