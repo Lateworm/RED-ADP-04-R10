@@ -13,3 +13,7 @@ open "rndebugger://set-debugger-loc?host=localhost&port=8081"
 ```bash
 react-native run-ios --simulator="iPhone SE"
 ```
+
+```bash
+react-native run-android
+```
