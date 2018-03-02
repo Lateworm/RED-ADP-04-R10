@@ -1,4 +1,8 @@
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
+
+import { typography, colors } from "../../config/styles";
+const { darkGrey, purple } = colors;
+const { fontMain, fontMainLight } = typography;
 
 export const styles = StyleSheet.create({
 	view: {
@@ -6,12 +10,22 @@ export const styles = StyleSheet.create({
 		marginRight: 10,
 		marginTop: 25
 	},
-	heading: {
-		marginBottom: 5,
-		backgroundColor: "#e6e6e6"
+
+	h1: {
+		fontFamily: fontMain,
+		fontSize: 20,
+		marginBottom: 5
 	},
+
+	h2: {
+		fontFamily: fontMain,
+		fontSize: 20,
+		marginBottom: 5,
+		color: purple
+	},
+
 	text: {
-		color: "#333333",
+		color: darkGrey,
 		marginBottom: 10
 	}
 });
