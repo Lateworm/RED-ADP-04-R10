@@ -8,10 +8,20 @@ import {
 	DrawerNavigationItem as DrawerItem
 } from "@expo/ex-navigation";
 
+// import presentation components
 import Icon from "react-native-vector-icons/Ionicons";
-
+import LinearGradient from "react-native-linear-gradient";
 import { colors, typography } from "../config/styles.js";
-const { black, white, mediumGrey } = colors;
+const { black, white, mediumGrey, red, purple } = colors;
+
+const defaultRouteConfig = {
+	navigationBar: {
+		tintColor: white, // colour of scene title and hamburger menu
+		titleStyle: { fontFamily: typography.fontRegular },
+		backgroundColor: red // when gradient is implemented, shouldn't be needed anymore
+		// renderBackground: () => <Gradient />
+	}
+};
 
 class NavigationLayout extends Component {
 	render() {
@@ -36,6 +46,7 @@ class NavigationLayout extends Component {
 						id="schedule"
 						navigatorUID="schedule"
 						initialRoute={Router.getRoute("schedule")}
+						defaultRouteConfig={defaultRouteConfig}
 					/>
 				</DrawerItem>
 				<DrawerItem
@@ -51,6 +62,7 @@ class NavigationLayout extends Component {
 						id="faves"
 						navigatorUID="faves"
 						initialRoute={Router.getRoute("faves")}
+						defaultRouteConfig={defaultRouteConfig}
 					/>
 				</DrawerItem>
 				<DrawerItem
@@ -66,6 +78,7 @@ class NavigationLayout extends Component {
 						id="about"
 						navigatorUID="about"
 						initialRoute={Router.getRoute("about")}
+						defaultRouteConfig={defaultRouteConfig}
 					/>
 				</DrawerItem>
 			</DrawerNav>
@@ -108,7 +121,7 @@ const styles = StyleSheet.create({
 	},
 
 	selectedItemStyle: {
-		backgroundColor: "blue"
+		backgroundColor: purple
 	},
 
 	titleText: {
