@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Text, View, ScrollView } from "react-native";
+import { ScrollView, Text, TouchableHighlight } from "react-native";
 
 // import presentation components
 import { styles } from "./styles";
@@ -12,22 +12,25 @@ import { goToSpeaker } from "../../navigation/NavigationHelper";
 
 const Sessions = ({ session }) => (
 	<ScrollView>
-		<View>
-			<View>
-				<Text>{session.location}</Text>
-				{console.log(session)}
-			</View>
-			<View>
-				<Text>{session.title}</Text>
-				<Text>{moment.unix(session.start_time).format("LT")}</Text>
-				<Text>{session.description}</Text>
-			</View>
-		</View>
+		<Text>{session.location}</Text>
+
+		<Text>{session.title}</Text>
+
+		<Text>{moment.unix(session.start_time).format("LT")}</Text>
+		<Text>{session.description}</Text>
+		<Text>Presented By</Text>
+
+		<TouchableHighlight
+			underlayColor={colors.lightGrey}
+			onPress={() => goToSpeaker(session.speaker)}
+		>
+			<Text>{session.speaker}</Text>
+		</TouchableHighlight>
 	</ScrollView>
 );
 
-// Sessions.propTypes = {
-// 	session: PropTypes.object.isRequired
-// };
+Sessions.propTypes = {
+	session: PropTypes.object.isRequired
+};
 
 export default Sessions;
