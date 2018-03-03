@@ -1,7 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { ScrollView, Text, TouchableHighlight } from "react-native";
+import {
+	Button,
+	Image,
+	ScrollView,
+	Text,
+	TouchableHighlight,
+	View
+} from "react-native";
 
 // import presentation components
 import { styles } from "./styles";
@@ -12,20 +19,35 @@ import { goToSpeaker } from "../../navigation/NavigationHelper";
 
 const Sessions = ({ session }) => (
 	<ScrollView>
-		<Text>{session.location}</Text>
+		<Text style={[styles.h2, styles.marginLR]}>{session.location}</Text>
 
-		<Text>{session.title}</Text>
+		<Text style={[styles.h1, styles.marginLR]}>{session.title}</Text>
 
-		<Text>{moment.unix(session.start_time).format("LT")}</Text>
-		<Text>{session.description}</Text>
-		<Text>Presented By</Text>
+		<Text style={[styles.h3, styles.marginLR]}>
+			{moment.unix(session.start_time).format("LT")}
+		</Text>
+		<Text style={[styles.marginLR]}>{session.description}</Text>
+		<Text style={[styles.h2, styles.marginLR]}>Presented By</Text>
 
 		<TouchableHighlight
+			style={[styles.marginLR]}
 			underlayColor={colors.lightGrey}
 			onPress={() => goToSpeaker(session.speaker)}
 		>
-			<Text>{session.speaker}</Text>
+			<View>
+				{/* <Image style={styles.image} source={require("./map_pin.png")} /> */}
+				<Text>{session.speaker}</Text>
+			</View>
 		</TouchableHighlight>
+
+		<View style={[styles.hr, styles.marginLR]} />
+
+		<Button // https://facebook.github.io/react-native/docs/button.html
+			// onPress={onPressLearnMore}
+			title="Learn More"
+			color="#841584"
+			accessibilityLabel="Learn more about this purple button"
+		/>
 	</ScrollView>
 );
 
