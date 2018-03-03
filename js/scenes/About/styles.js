@@ -7,8 +7,14 @@ const { fontMain, fontMainLight } = typography;
 export const styles = StyleSheet.create({
 	view: {
 		marginLeft: 10,
-		marginRight: 10,
-		marginTop: 25
+		marginRight: 10
+	},
+
+	logo: {
+		width: 200,
+		height: 100,
+		marginRight: "auto",
+		marginLeft: "auto"
 	},
 
 	h1: {
