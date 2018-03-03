@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Router from "./Routes";
-import { StyleSheet, Text, View } from "react-native";
+import { Dimensions, StyleSheet, Text, View } from "react-native";
 
 import {
 	StackNavigation as StackNav,
@@ -14,12 +14,26 @@ import LinearGradient from "react-native-linear-gradient";
 import { colors, typography } from "../config/styles.js";
 const { black, white, mediumGrey, red, purple } = colors;
 
+const { windowWidth } = Dimensions.get("window"); // https://facebook.github.io/react-native/docs/dimensions.html
+
+const renderHeaderBackground = () => {
+	return (
+		<LinearGradient
+			start={{ x: 0, y: 0.5 }}
+			end={{ x: 1, y: 0.5 }}
+			locations={[0, 1]}
+			colors={[red, purple]}
+			width={windowWidth}
+			height={63}
+		/>
+	);
+};
+
 const defaultRouteConfig = {
 	navigationBar: {
 		tintColor: white, // colour of scene title and hamburger menu
 		titleStyle: { fontFamily: typography.fontRegular },
-		backgroundColor: red // when gradient is implemented, shouldn't be needed anymore
-		// renderBackground: () => <Gradient />
+		renderBackground: () => renderHeaderBackground() // https://github.com/expo/ex-navigation
 	}
 };
 

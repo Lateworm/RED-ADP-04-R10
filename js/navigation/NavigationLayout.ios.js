@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Router from "./Routes";
-import { Text } from "react-native";
+import { Dimensions, Text } from "react-native";
 
 import {
 	StackNavigation as StackNav,
@@ -8,10 +8,34 @@ import {
 	TabNavigationItem as TabItem
 } from "@expo/ex-navigation";
 
+// import presentation components
 import Icon from "react-native-vector-icons/Ionicons";
-
+import LinearGradient from "react-native-linear-gradient";
 import { colors, typography } from "../config/styles.js";
-const { black, white, mediumGrey } = colors;
+const { black, white, mediumGrey, red, purple } = colors;
+
+const { windowWidth } = Dimensions.get("window"); // https://facebook.github.io/react-native/docs/dimensions.html
+
+const renderHeaderBackground = () => {
+	return (
+		<LinearGradient
+			start={{ x: 0, y: 0.5 }}
+			end={{ x: 1, y: 0.5 }}
+			locations={[0, 1]}
+			colors={[red, purple]}
+			width={windowWidth}
+			height={63}
+		/>
+	);
+};
+
+const defaultRouteConfig = {
+	navigationBar: {
+		tintColor: white, // colour of scene title and hamburger menu
+		titleStyle: { fontFamily: typography.fontRegular },
+		renderBackground: () => renderHeaderBackground() // https://github.com/expo/ex-navigation
+	}
+};
 
 class NavigationLayout extends Component {
 	render() {
@@ -34,6 +58,7 @@ class NavigationLayout extends Component {
 						id="schedule"
 						navigatorUID="schedule"
 						initialRoute={Router.getRoute("schedule")}
+						defaultRouteConfig={defaultRouteConfig}
 					/>
 				</TabItem>
 				<TabItem
@@ -48,6 +73,7 @@ class NavigationLayout extends Component {
 						id="faves"
 						navigatorUID="faves"
 						initialRoute={Router.getRoute("faves")}
+						defaultRouteConfig={defaultRouteConfig}
 					/>
 				</TabItem>
 				<TabItem
@@ -62,6 +88,7 @@ class NavigationLayout extends Component {
 						id="about"
 						navigatorUID="about"
 						initialRoute={Router.getRoute("about")}
+						defaultRouteConfig={defaultRouteConfig}
 					/>
 				</TabItem>
 			</TabNav>
