@@ -1,7 +1,6 @@
 import { StyleSheet } from "react-native";
 import { colors, typography } from "../../config/styles";
-const { black, nearBlack, lightGrey, purple } = colors;
-const { fontMain, fontMainLight } = typography;
+const { lightGrey } = colors;
 
 export const styles = StyleSheet.create({
 	hr: {
