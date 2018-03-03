@@ -2,19 +2,28 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // import presentation components
-import { FlatList, Image, Text, View } from "react-native";
+import {
+	Animated,
+	FlatList,
+	Image,
+	Text,
+	ScrollView,
+	View
+} from "react-native";
 import { styles } from "./styles";
 import LinearGradient from "react-native-linear-gradient";
 import { colors, typography } from "../../config/styles.js";
 const { black, white, mediumGrey, red, purple } = colors;
 
 const About = ({ data }) => (
-	<View style={styles.view}>
+	<ScrollView style={styles.view}>
 		<Image
 			style={styles.logo}
 			resizeMode={"contain"}
 			source={require("../../assets/images/r10_logo.png")}
 		/>
+
+		<View style={styles.hr} />
 		<Text style={styles.text}>
 			R10 is a conference that focuses on just about any topic related to dev
 		</Text>
@@ -34,7 +43,7 @@ const About = ({ data }) => (
 			)}
 			keyExtractor={item => item.title}
 		/>
-	</View>
+	</ScrollView>
 );
 
 About.propTypes = {
