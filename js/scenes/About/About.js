@@ -8,6 +8,7 @@ import {
 	Image,
 	Text,
 	ScrollView,
+	StatusBar,
 	View
 } from "react-native";
 import { styles } from "./styles";
@@ -17,6 +18,7 @@ const { black, white, mediumGrey, red, purple } = colors;
 
 const About = ({ data }) => (
 	<ScrollView style={styles.view}>
+		<StatusBar barStyle="light-content" />
 		<Image
 			style={styles.logo}
 			resizeMode={"contain"}

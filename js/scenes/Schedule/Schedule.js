@@ -21,8 +21,8 @@ const Schedule = ({ data }) => (
 					>
 						<View>
 							<View>
-								<Text>{item.title}</Text>
-								<Text>{item.location}</Text>
+								<Text style={styles.h2}>{item.title}</Text>
+								<Text style={styles.h3}>{item.location}</Text>
 							</View>
 						</View>
 					</TouchableHighlight>
@@ -30,12 +30,10 @@ const Schedule = ({ data }) => (
 			}}
 			keyExtractor={(item, index) => index}
 			ItemSeparatorComponent={() => {
-				return <View style={styles.separator} />;
+				return <View style={styles.hr} />;
 			}}
 			renderSectionHeader={({ section }) => (
-				<Text style={styles.title}>
-					{moment.unix(section.title).format("LT")}
-				</Text>
+				<Text style={styles.h1}>{moment.unix(section.title).format("LT")}</Text>
 			)}
 			sections={data}
 		/>
