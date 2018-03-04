@@ -40,7 +40,7 @@ export default (state = initialState, action) => {
 	case SPEAKER_GET_DATA:
 		return {
 			...state,
-			speakersData: action.payload,
+			speakerData: action.payload,
 			isLoading: false
 		};
 	case SPEAKER_GET_ERROR:
