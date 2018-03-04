@@ -21,13 +21,13 @@ class ScheduleContainer extends Component {
 
 	render() {
 		const { sessionsData, isLoading } = this.props;
-		return <Schedule data={sessionsData} isLoading={isLoading} />;
+		return <Schedule sessions={sessionsData} isLoading={isLoading} />;
 	}
 }
 
 ScheduleContainer.propTypes = {
-	sessionsData: PropTypes.array.isRequired,
 	dispatch: PropTypes.func.isRequired,
+	sessionsData: PropTypes.array.isRequired,
 	isLoading: PropTypes.bool.isRequired
 };
 

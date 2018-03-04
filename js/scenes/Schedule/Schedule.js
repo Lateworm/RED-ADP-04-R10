@@ -10,7 +10,7 @@ import { colors } from "../../config/styles.js";
 import moment from "moment";
 import { goToSession } from "../../navigation/NavigationHelper";
 
-const Schedule = ({ data }) => (
+const Schedule = ({ sessions }) => (
 	<View>
 		<SectionList
 			renderItem={({ item }) => {
@@ -35,13 +35,13 @@ const Schedule = ({ data }) => (
 			renderSectionHeader={({ section }) => (
 				<Text style={styles.h1}>{moment.unix(section.title).format("LT")}</Text>
 			)}
-			sections={data}
+			sections={sessions}
 		/>
 	</View>
 );
 
 Schedule.propTypes = {
-	data: PropTypes.array.isRequired
+	sessions: PropTypes.array.isRequired
 };
 
 export default Schedule;

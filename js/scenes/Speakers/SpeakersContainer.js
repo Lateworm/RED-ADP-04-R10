@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
+// import presentation components
 import Speakers from "./Speakers";
 
 class SpeakersContainer extends Component {

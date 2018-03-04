@@ -17,7 +17,7 @@ import { colors } from "../../config/styles.js";
 import moment from "moment";
 import { goToSpeaker } from "../../navigation/NavigationHelper";
 
-const Sessions = ({ session }) => (
+const Sessions = ({ speaker, session }) => (
 	<ScrollView>
 		<Text style={[styles.h2, styles.marginLR]}>{session.location}</Text>
 
@@ -27,7 +27,7 @@ const Sessions = ({ session }) => (
 			{moment.unix(session.start_time).format("LT")}
 		</Text>
 		<Text style={[styles.marginLR]}>{session.description}</Text>
-		<Text style={[styles.h2, styles.marginLR]}>Presented By</Text>
+		<Text style={[styles.h2, styles.marginLR]}>Presented By:</Text>
 
 		<TouchableHighlight
 			style={[styles.marginLR]}
@@ -35,24 +35,30 @@ const Sessions = ({ session }) => (
 			onPress={() => goToSpeaker(session.speaker)}
 		>
 			<View>
-				{/* <Image style={styles.image} source={require("./map_pin.png")} /> */}
-				<Text>{session.speaker}</Text>
+				<Image
+					style={styles.image}
+					resizeMode={"contain"}
+					source={{ uri: speaker.image }}
+				/>
+				<Text>{speaker.name}</Text>
 			</View>
 		</TouchableHighlight>
 
 		<View style={[styles.hr, styles.marginLR]} />
 
-		<Button // https://facebook.github.io/react-native/docs/button.html
-			// onPress={onPressLearnMore}
+		{/* <Button // https://facebook.github.io/react-native/docs/button.html
+			onPress={onPressLearnMore}
 			title="Learn More"
 			color="#841584"
-			accessibilityLabel="Learn more about this purple button"
-		/>
+			accessibilityLabel="favourite this session"
+		/> */}
 	</ScrollView>
 );
 
 Sessions.propTypes = {
 	session: PropTypes.object.isRequired
+	// speaker: PropTypes.array.isRequired
+	// favourites: PropTypes.array.isRequired
 };
 
 export default Sessions;

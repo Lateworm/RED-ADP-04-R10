@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 // import Redux components
 import { connect } from "react-redux";
-import { fetchSpeakersData } from "../../redux/modules/speakers";
+import { fetchSpeakerData } from "../../redux/modules/speaker";
 
 // import presentation components
 import Sessions from "./Sessions";
@@ -16,30 +16,34 @@ class SessionsContainer extends Component {
 	};
 
 	componentDidMount() {
-		this.props.dispatch(fetchSpeakersData());
+		this.props.dispatch(
+			fetchSpeakerData(this.props.route.params.session.speaker)
+		);
 	}
 
 	render() {
-		const { sessionsData, isLoading } = this.props;
+		const { speakerData, isLoading } = this.props;
+		console.log("speakerData", speakerData);
 		return (
 			<Sessions
 				session={this.props.route.params.session}
 				isLoading={isLoading}
+				speaker={speakerData}
 			/>
 		);
 	}
 }
 
 SessionsContainer.propTypes = {
-	sessionsData: PropTypes.array.isRequired,
 	dispatch: PropTypes.func.isRequired,
+	// speakerData: PropTypes.array.isRequired,
 	isLoading: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => {
 	return {
-		sessionsData: state.sessions.sessionsData,
-		isLoading: state.sessions.isLoading
+		speakerData: state.speaker.speakerData,
+		isLoading: state.speaker.isLoading
 	};
 };
 

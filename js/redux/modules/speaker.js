@@ -1,3 +1,5 @@
+import { formatDataObject } from "../helpers/sessionsHelper";
+
 const SPEAKER_GET_LOADING = "SPEAKERS_GET_LOADING";
 const SPEAKER_GET_DATA = "SPEAKERS_GET_DATA";
 const SPEAKER_GET_ERROR = "SPEAKERS_GET_ERROR";
@@ -68,7 +70,7 @@ export const fetchSpeakerData = speakerID => {
 		)
 			.then(resp => resp.json())
 			.then(data => {
-				dispatch(speakerGet(data));
+				dispatch(speakerGet(formatDataObject(data)));
 			})
 			.catch(err => {
 				dispatch(speakerGetError(err));
