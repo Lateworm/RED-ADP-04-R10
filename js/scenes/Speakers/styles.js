@@ -1,21 +1,22 @@
 import { StyleSheet } from "react-native";
 import { typography, colors } from "../../config/styles";
-const { white } = colors;
+const { black, white, mediumGrey } = colors;
 const { fontMain } = typography;
 
 export const styles = StyleSheet.create({
 	h1: {
-		// Speaker name
-		paddingTop: 4,
+		// About the speaker
+		paddingTop: 40,
 		paddingBottom: 4,
-		fontSize: 24,
-		fontFamily: typography.fontMain
+		fontSize: 14,
+		fontFamily: typography.fontMain,
+		color: white
 	},
 
 	h2: {
-		// Location, presenter
-		fontSize: 14,
-		color: colors.white,
+		// Speaker's name
+		fontSize: 24,
+		textAlign: "center",
 		fontFamily: typography.fontMain,
 		paddingTop: 10,
 		paddingBottom: 10
@@ -30,5 +31,14 @@ export const styles = StyleSheet.create({
 	marginLR: {
 		marginLeft: 10,
 		marginRight: 10
+	},
+
+	view: {
+		backgroundColor: black
+	},
+
+	scrollview: {
+		backgroundColor: white,
+		borderRadius: 8
 	}
 });
