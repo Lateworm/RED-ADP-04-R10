@@ -10,14 +10,15 @@ import {
 	View
 } from "react-native";
 
+import moment from "moment";
+import { goToSpeaker } from "../../navigation/NavigationHelper";
+import { Fave, UnFave } from "../../config/models";
+
 // import presentation components
 import { styles } from "./styles";
 import { colors } from "../../config/styles.js";
 
-import moment from "moment";
-import { goToSpeaker } from "../../navigation/NavigationHelper";
-
-const Sessions = ({ speaker, session }) => (
+const Sessions = ({ speaker, session, faves }) => (
 	<ScrollView>
 		<Text style={[styles.h2, styles.marginLR]}>{session.location}</Text>
 
@@ -46,12 +47,12 @@ const Sessions = ({ speaker, session }) => (
 
 		<View style={[styles.hr, styles.marginLR]} />
 
-		{/* <Button // https://facebook.github.io/react-native/docs/button.html
-			onPress={onPressLearnMore}
-			title="Learn More"
+		<Button // https://facebook.github.io/react-native/docs/button.html
+			onPress={() => Fave(session.session_id)}
+			title="Add to Faves"
 			color="#841584"
-			accessibilityLabel="favourite this session"
-		/> */}
+			accessibilityLabel="Add this session to your Faves"
+		/>
 	</ScrollView>
 );
 

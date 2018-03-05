@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { getFaves } from "../../config/models";
 
 // import Redux components
 import { connect } from "react-redux";
@@ -23,11 +24,17 @@ class SessionsContainer extends Component {
 
 	render() {
 		const { speakerData, isLoading } = this.props;
+		const faves = getFaves().reduce((array, cursor) => {
+			array.push(cursor.id);
+			return array;
+		}, []);
+		console.log(faves);
 		return (
 			<Sessions
 				session={this.props.route.params.session}
 				isLoading={isLoading}
 				speaker={speakerData}
+				faves={faves}
 			/>
 		);
 	}
