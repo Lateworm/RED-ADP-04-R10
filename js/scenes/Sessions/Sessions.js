@@ -48,8 +48,16 @@ const Sessions = ({ speaker, session, faves }) => (
 		<View style={[styles.hr, styles.marginLR]} />
 
 		<Button // https://facebook.github.io/react-native/docs/button.html
-			onPress={() => Fave(session.session_id)}
-			title="Add to Faves"
+			onPress={
+				faves.includes(session.session_id)
+					? () => UnFave(session.session_id)
+					: () => Fave(session.session_id)
+			}
+			title={
+				faves.includes(session.session_id)
+					? "Remove from Faves"
+					: "Add to Faves"
+			}
 			color="#841584"
 			accessibilityLabel="Add this session to your Faves"
 		/>
