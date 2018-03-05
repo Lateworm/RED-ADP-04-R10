@@ -17,6 +17,7 @@ import { Fave, UnFave } from "../../config/models";
 // import presentation components
 import { styles } from "./styles";
 import { colors } from "../../config/styles.js";
+import GradatedButton from "../../components/GradatedButton/GradatedButton";
 
 const Sessions = ({ speaker, session, faves }) => (
 	<ScrollView>
@@ -47,7 +48,7 @@ const Sessions = ({ speaker, session, faves }) => (
 
 		<View style={[styles.hr, styles.marginLR]} />
 
-		<Button // https://facebook.github.io/react-native/docs/button.html
+		<GradatedButton
 			onPress={
 				faves.includes(session.session_id)
 					? () => UnFave(session.session_id)
@@ -58,8 +59,6 @@ const Sessions = ({ speaker, session, faves }) => (
 					? "Remove from Faves"
 					: "Add to Faves"
 			}
-			color="#841584"
-			accessibilityLabel="Add this session to your Faves"
 		/>
 	</ScrollView>
 );

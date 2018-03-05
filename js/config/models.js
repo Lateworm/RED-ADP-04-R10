@@ -11,6 +11,9 @@ const FaveSchema = {
 
 const realm = new Realm({ schema: [FaveSchema] });
 
+// hints for reactivity:
+// https://github.com/realm/realm-js/issues/628
+
 export const Fave = id => {
 	realm.write(() => {
 		realm.create("Fave", {
