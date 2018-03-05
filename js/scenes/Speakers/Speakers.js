@@ -1,17 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+// import presentation components
 import { Text, View } from "react-native";
 import { styles } from "./styles";
 
-const Speakers = () => (
+const Speakers = ({ speaker }) => (
 	<View>
-		<Text>Speakers Scene.</Text>
+		<Text>About the Speaker</Text>
+		<Text>{speaker.name}</Text>
 	</View>
 );
 
 Speakers.propTypes = {
-	data: PropTypes.array.isRequired
+	speaker: PropTypes.array.isRequired
 };
 
 export default Speakers;

@@ -23,7 +23,6 @@ class SessionsContainer extends Component {
 
 	render() {
 		const { speakerData, isLoading } = this.props;
-		console.log("speakerData", speakerData);
 		return (
 			<Sessions
 				session={this.props.route.params.session}

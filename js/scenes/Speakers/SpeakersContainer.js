@@ -5,13 +5,14 @@ import PropTypes from "prop-types";
 import Speakers from "./Speakers";
 
 class SpeakersContainer extends Component {
-	constructor() {
-		super();
-		this.state = {};
-	}
+	static propTypes = {
+		speaker: PropTypes.object.isRequired // can't be satisfied
+	};
 
 	render() {
-		return <Speakers />;
+		console.log("speaker:", speaker);
+		const { speaker } = this.props;
+		return <Speakers speaker={speaker} />;
 	}
 }
 

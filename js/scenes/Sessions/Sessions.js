@@ -32,7 +32,7 @@ const Sessions = ({ speaker, session }) => (
 		<TouchableHighlight
 			style={[styles.marginLR]}
 			underlayColor={colors.lightGrey}
-			onPress={() => goToSpeaker(session.speaker)}
+			onPress={() => goToSpeaker(speaker)}
 		>
 			<View>
 				<Image
