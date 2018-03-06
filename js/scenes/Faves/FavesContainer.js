@@ -23,8 +23,6 @@ class FavesContainer extends Component {
 
 	render() {
 		const { sessionsData, isLoading, faves } = this.props;
-
-		console.log("faves:", faves);
 		return (
 			<Faves sessions={sessionsData} isLoading={isLoading} faves={faves} />
 		);
