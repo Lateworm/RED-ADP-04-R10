@@ -5,6 +5,7 @@ import { closeSpeaker } from "../../navigation/NavigationHelper";
 // import presentation components
 import { Image, Button, Linking, Text, View, ScrollView } from "react-native";
 import { styles } from "./styles";
+import GradatedButton from "../../components/GradatedButton/GradatedButton";
 
 const Speakers = ({ speaker }) => (
 	<View style={styles.view}>
@@ -24,15 +25,13 @@ const Speakers = ({ speaker }) => (
 			/>
 			<Text style={[styles.h2]}>{speaker.name}</Text>
 			<Text style={[styles.marginLR]}>{speaker.bio}</Text>
-			<Button // https://facebook.github.io/react-native/docs/button.html
+			<GradatedButton
 				onPress={() =>
 					Linking.openURL(`${speaker.url}`).catch(err =>
 						console.error("An error occurred", err)
 					)
 				}
 				title="Read More on Wikipedia"
-				color="#841584"
-				accessibilityLabel="Read Wikipedia's article about this speaker"
 			/>
 		</ScrollView>
 	</View>
