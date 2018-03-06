@@ -18,10 +18,21 @@ import { Fave, UnFave } from "../../config/models";
 import { styles } from "./styles";
 import { colors } from "../../config/styles.js";
 import GradatedButton from "../../components/GradatedButton/GradatedButton";
+import Icon from "react-native-vector-icons/Ionicons";
 
 const Sessions = ({ speaker, session, faves }) => (
 	<ScrollView>
 		<Text style={[styles.h2, styles.marginLR]}>{session.location}</Text>
+
+		{faves.includes(session.session_id) ? (
+			<Icon
+				name={"ios-heart"}
+				size={16}
+				// ios={`ios-${iconName}`}
+				// md={`md-${iconName}`}
+				color={colors.red}
+			/>
+		) : null}
 
 		<Text style={[styles.h1, styles.marginLR]}>{session.title}</Text>
 

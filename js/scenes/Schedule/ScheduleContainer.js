@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { getFaves } from "../../config/models";
 
 // import Redux components
 import { connect } from "react-redux";
@@ -21,7 +22,13 @@ class ScheduleContainer extends Component {
 
 	render() {
 		const { sessionsData, isLoading } = this.props;
-		return <Schedule sessions={sessionsData} isLoading={isLoading} />;
+		const faves = getFaves().reduce((array, cursor) => {
+			array.push(cursor.id);
+			return array;
+		}, []);
+		return (
+			<Schedule sessions={sessionsData} isLoading={isLoading} faves={faves} />
+		);
 	}
 }
 
