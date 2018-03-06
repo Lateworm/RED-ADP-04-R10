@@ -15,17 +15,24 @@ import { typography, colors } from "../../config/styles";
 const { purple, blue } = colors;
 
 const GradatedButton = ({ title, onPress }) => (
-	<View style={styles.view}>
+	<View style={styles.outerView}>
 		<LinearGradient
 			start={{ x: 0, y: 0 }}
 			end={{ x: 1, y: 1 }}
 			locations={[0, 1]}
 			colors={[purple, blue]}
 			width={200}
-			height={63}
+			height={40}
+			style={styles.gradient}
 		>
-			<TouchableHighlight underlayColor={colors.purple} onPress={onPress}>
-				<Text style={styles.buttonText}>{title}</Text>
+			<TouchableHighlight
+				style={styles.touchable}
+				underlayColor={colors.purple}
+				onPress={onPress}
+			>
+				<View style={styles.innerView}>
+					<Text style={styles.text}>{title}</Text>
+				</View>
 			</TouchableHighlight>
 		</LinearGradient>
 	</View>

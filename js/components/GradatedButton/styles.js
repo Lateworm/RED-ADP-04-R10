@@ -4,9 +4,23 @@ const { black, white, mediumGrey } = colors;
 const { fontMain } = typography;
 
 export const styles = StyleSheet.create({
-	view: {
+	outerView: {
+		marginTop: 8,
 		flexDirection: "row",
-		justifyContent: "center",
-		marginBottom: 15
+		justifyContent: "center"
+	},
+
+	gradient: {
+		borderRadius: 20
+	},
+
+	innerView: {
+		paddingTop: 10
+	},
+
+	text: {
+		fontSize: 16,
+		color: white,
+		textAlign: "center"
 	}
 });
