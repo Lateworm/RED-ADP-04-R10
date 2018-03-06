@@ -12,15 +12,15 @@ import {
 import LinearGradient from "react-native-linear-gradient";
 import { styles } from "./styles";
 import { typography, colors } from "../../config/styles";
-const { purple, red } = colors;
+const { purple, blue } = colors;
 
 const GradatedButton = ({ title, onPress }) => (
 	<View style={styles.view}>
 		<LinearGradient
-			start={{ x: 0, y: 0.5 }}
-			end={{ x: 1, y: 0.5 }}
+			start={{ x: 0, y: 0 }}
+			end={{ x: 1, y: 1 }}
 			locations={[0, 1]}
-			colors={[red, purple]}
+			colors={[purple, blue]}
 			width={200}
 			height={63}
 		>

@@ -19,10 +19,10 @@ const { windowWidth } = Dimensions.get("window"); // https://facebook.github.io/
 const renderHeaderBackground = () => {
 	return (
 		<LinearGradient
-			start={{ x: 0, y: 0.5 }}
-			end={{ x: 1, y: 0.5 }}
+			start={{ x: 1, y: 0 }}
+			end={{ x: 0, y: 1 }}
 			locations={[0, 1]}
-			colors={[red, purple]}
+			colors={[purple, red]}
 			width={windowWidth}
 			height={63}
 		/>
