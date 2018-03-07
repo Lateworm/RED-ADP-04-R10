@@ -3,19 +3,27 @@ import PropTypes from "prop-types";
 import { closeSpeaker } from "../../navigation/NavigationHelper";
 
 // import presentation components
-import { Image, Button, Linking, Text, View, ScrollView } from "react-native";
+import {
+	Image,
+	TouchableHighlight,
+	Linking,
+	Text,
+	View,
+	ScrollView
+} from "react-native";
 import { styles } from "./styles";
 import GradatedButton from "../../components/GradatedButton/GradatedButton";
+import Icon from "react-native-vector-icons/Ionicons";
 
 const Speakers = ({ speaker }) => (
 	<View style={styles.view}>
-		<Button
-			onPress={() => closeSpeaker()}
-			title="X"
-			color="white"
-			accessibilityLabel="Close this screen"
-		/>
-		<Text style={[styles.marginLR, styles.h1]}>About the Speaker</Text>
+		<View style={[styles.marginLR, styles.h1container]}>
+			<TouchableHighlight onPress={() => closeSpeaker()}>
+				<Icon name={"ios-close"} size={40} color={"white"} />
+			</TouchableHighlight>
+			<Text style={styles.h1}>About the Speaker</Text>
+			<Text>_</Text>
+		</View>
 
 		<ScrollView style={[styles.marginLR, styles.scrollview]}>
 			<Image
@@ -24,7 +32,7 @@ const Speakers = ({ speaker }) => (
 				source={{ uri: speaker.image }}
 			/>
 			<Text style={[styles.h2]}>{speaker.name}</Text>
-			<Text style={[styles.marginLR]}>{speaker.bio}</Text>
+			<Text style={[styles.marginLR, styles.text]}>{speaker.bio}</Text>
 			<GradatedButton
 				onPress={() =>
 					Linking.openURL(`${speaker.url}`).catch(err =>
@@ -38,7 +46,7 @@ const Speakers = ({ speaker }) => (
 );
 
 Speakers.propTypes = {
-	speaker: PropTypes.array.isRequired
+	speaker: PropTypes.object.isRequired
 };
 
 export default Speakers;

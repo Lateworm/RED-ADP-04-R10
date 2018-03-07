@@ -27,7 +27,7 @@ const GradatedButton = ({ title, onPress }) => (
 		>
 			<TouchableHighlight
 				style={styles.touchable}
-				underlayColor={colors.purple}
+				underlayColor={"transparent"}
 				onPress={onPress}
 			>
 				<View style={styles.innerView}>

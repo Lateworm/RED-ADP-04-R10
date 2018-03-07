@@ -6,7 +6,7 @@ import Speakers from "./Speakers";
 
 class SpeakersContainer extends Component {
 	static propTypes = {
-		speaker: PropTypes.object.isRequired // can't be satisfied
+		speaker: PropTypes.object.isRequired
 	};
 
 	render() {

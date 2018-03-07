@@ -7,7 +7,8 @@ export const styles = StyleSheet.create({
 	outerView: {
 		marginTop: 8,
 		flexDirection: "row",
-		justifyContent: "center"
+		justifyContent: "center",
+		margin: 16
 	},
 
 	gradient: {
