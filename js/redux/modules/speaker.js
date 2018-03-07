@@ -26,7 +26,7 @@ export const speakerGetError = err => ({
 
 const initialState = {
 	isLoading: false,
-	speakerData: [],
+	speakerData: {},
 	errorMessage: ""
 };
 

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { getFaves } from "../../config/models";
 
 // import Redux components
 import { connect } from "react-redux";
 import { fetchSpeakerData } from "../../redux/modules/speaker";
+import { fetchFaves } from "../../redux/modules/faves";
 
 // import presentation components
 import Sessions from "./Sessions";
@@ -20,14 +20,11 @@ class SessionsContainer extends Component {
 		this.props.dispatch(
 			fetchSpeakerData(this.props.route.params.session.speaker)
 		);
+		this.props.dispatch(fetchFaves());
 	}
 
 	render() {
-		const { speakerData, isLoading } = this.props;
-		const faves = getFaves().reduce((array, cursor) => {
-			array.push(cursor.id);
-			return array;
-		}, []);
+		const { speakerData, isLoading, faves } = this.props;
 		console.log(faves);
 		return (
 			<Sessions
@@ -42,13 +39,15 @@ class SessionsContainer extends Component {
 
 SessionsContainer.propTypes = {
 	dispatch: PropTypes.func.isRequired,
-	// speakerData: PropTypes.array.isRequired,
+	faves: PropTypes.array.isRequired,
 	isLoading: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => {
+	console.log(state);
 	return {
 		speakerData: state.speaker.speakerData,
+		faves: state.faves.faves,
 		isLoading: state.speaker.isLoading
 	};
 };
