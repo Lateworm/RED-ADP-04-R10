@@ -20,17 +20,20 @@ const Schedule = ({ sessions, faves }) => (
 					>
 						<View>
 							<View>
-								<Text style={styles.h2}>{item.title}</Text>
-								<Text style={styles.h3}>{item.location}</Text>
-								{faves.includes(item.session_id) ? (
-									<Icon
-										name={"ios-heart"}
-										size={16}
-										// ios={`ios-${iconName}`}
-										// md={`md-${iconName}`}
-										color={colors.red}
-									/>
-								) : null}
+								<Text style={[styles.marginLR, styles.h2]}>{item.title}</Text>
+
+								<View style={[styles.marginLR, styles.favedView]}>
+									<Text style={styles.h3}>{item.location}</Text>
+									{faves.includes(item.session_id) ? (
+										<Icon
+											name={"ios-heart"}
+											size={16}
+											// ios={`ios-${iconName}`}
+											// md={`md-${iconName}`}
+											color={colors.red}
+										/>
+									) : null}
+								</View>
 							</View>
 						</View>
 					</TouchableHighlight>
@@ -41,7 +44,9 @@ const Schedule = ({ sessions, faves }) => (
 				return <View style={styles.hr} />;
 			}}
 			renderSectionHeader={({ section }) => (
-				<Text style={styles.h1}>{moment.unix(section.title).format("LT")}</Text>
+				<Text style={[styles.paddingLR, styles.h1]}>
+					{moment.unix(section.title).format("LT")}
+				</Text>
 			)}
 			sections={sessions}
 		/>
