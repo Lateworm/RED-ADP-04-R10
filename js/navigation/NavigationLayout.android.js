@@ -12,7 +12,7 @@ import {
 import Icon from "react-native-vector-icons/Ionicons";
 import LinearGradient from "react-native-linear-gradient";
 import { colors, typography } from "../config/styles.js";
-const { black, white, mediumGrey, red, purple } = colors;
+const { black, white, mediumGrey, lightGrey, red, purple } = colors;
 
 const { windowWidth } = Dimensions.get("window"); // https://facebook.github.io/react-native/docs/dimensions.html
 
@@ -44,7 +44,7 @@ class NavigationLayout extends Component {
 				id="main"
 				navigatorUID="main"
 				initialItem="about"
-				drawerWidth={300}
+				drawerWidth={200}
 				renderHeader={this._renderHeader}
 			>
 				<DrawerItem
@@ -108,7 +108,8 @@ class NavigationLayout extends Component {
 			<Text
 				style={{
 					fontFamily: typography.fontMain,
-					color: isSelected ? black : mediumGrey
+					fontSize: 16,
+					color: isSelected ? purple : mediumGrey
 				}}
 			>
 				{title}
@@ -119,11 +120,10 @@ class NavigationLayout extends Component {
 	renderIcon(isSelected, iconName) {
 		return (
 			<Icon
-				name={`ios-${iconName}`}
+				style={styles.icon}
+				name={`md-${iconName}`}
 				size={24}
-				// ios={`ios-${iconName}`}
-				// md={`md-${iconName}`}
-				color={isSelected ? white : mediumGrey}
+				color={isSelected ? purple : mediumGrey}
 			/>
 		);
 	}
@@ -131,19 +131,15 @@ class NavigationLayout extends Component {
 
 const styles = StyleSheet.create({
 	header: {
-		height: 20
+		height: 8
+	},
+
+	icon: {
+		marginRight: 10
 	},
 
 	selectedItemStyle: {
-		backgroundColor: purple
-	},
-
-	titleText: {
-		fontWeight: "bold"
-	},
-
-	selectedTitleText: {
-		color: "white"
+		backgroundColor: lightGrey
 	}
 });
 
