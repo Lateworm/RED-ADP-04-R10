@@ -1,6 +1,10 @@
 # RED-ADP-04-R10
 
-## Makin' it work (takes a little longer)...
+An app for the fictional R10 conference. This project is part of coursework for RED Academy's app development program.
+
+![R10 project screenshot](/screenshot.gif?raw=true)
+
+## [Makin' it work](https://www.youtube.com/watch?v=fwwPmNWQfIY)
 
 ```bash
 npm start
