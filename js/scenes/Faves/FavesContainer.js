@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 // import Redux components
 import { connect } from "react-redux";
-import { fetchSessionsData } from "../../redux/modules/sessions";
+import { fetchFavesData } from "../../redux/modules/sessions";
 import { fetchFaves } from "../../redux/modules/faves";
 
 // import presentation components
@@ -17,14 +17,21 @@ class FavesContainer extends Component {
 	};
 
 	componentDidMount() {
-		this.props.dispatch(fetchSessionsData());
+		this.props.dispatch(fetchFavesData());
 		this.props.dispatch(fetchFaves());
 	}
 
 	render() {
 		const { sessionsData, isLoading, faves } = this.props;
+		console.log("sessionsData ==", sessionsData);
+		console.log("faves ==", faves);
+
+		const faveSessionsData = sessionsData.filter(session => {
+			return faves.indexOf(session.data[0].session_id) >= 0;
+		});
+
 		return (
-			<Faves sessions={sessionsData} isLoading={isLoading} faves={faves} />
+			<Faves sessions={faveSessionsData} isLoading={isLoading} faves={faves} />
 		);
 	}
 }

@@ -1,4 +1,7 @@
-import { formatSessionData } from "../helpers/sessionsHelper";
+import {
+	formatSessionDataForSchedule,
+	formatSessionDataForFaves
+} from "../helpers/sessionsHelper";
 
 const SESSIONS_GET_LOADING = "SESSIONS_GET_LOADING";
 const SESSIONS_GET_DATA = "SESSIONS_GET_DATA";
@@ -56,7 +59,7 @@ export default (state = initialState, action) => {
 	}
 };
 
-// async action creator
+// async action creators
 
 export const fetchSessionsData = () => {
 	return dispatch => {
@@ -65,7 +68,22 @@ export const fetchSessionsData = () => {
 		fetch("https://r10app-95fea.firebaseio.com/sessions.json")
 			.then(res => res.json())
 			.then(data => {
-				dispatch(sessionsGet(formatSessionData(data)));
+				dispatch(sessionsGet(formatSessionDataForSchedule(data)));
+			})
+			.catch(err => {
+				dispatch(sessionsGetError(err));
+			});
+	};
+};
+
+export const fetchFavesData = () => {
+	return dispatch => {
+		dispatch(sessionsGetLoading());
+
+		fetch("https://r10app-95fea.firebaseio.com/sessions.json")
+			.then(res => res.json())
+			.then(data => {
+				dispatch(sessionsGet(formatSessionDataForFaves(data)));
 			})
 			.catch(err => {
 				dispatch(sessionsGetError(err));
