@@ -12,7 +12,7 @@ import {
 	View
 } from "react-native";
 import { styles } from "./styles";
-import LinearGradient from "react-native-linear-gradient";
+import ConductItem from "../../components/ConductItem/ConductItem";
 import { colors, typography } from "../../config/styles.js";
 const { black, white, mediumGrey, red, purple } = colors;
 
@@ -35,13 +35,11 @@ const About = ({ data }) => (
 			BC
 		</Text>
 		<Text style={styles.h1}>Code of Conduct</Text>
+
 		<FlatList
 			data={data}
 			renderItem={({ item }) => (
-				<View>
-					<Text style={styles.h2}>+ {item.title}</Text>
-					<Text style={styles.text}>{item.description}</Text>
-				</View>
+				<ConductItem title={item.title} description={item.description} />
 			)}
 			keyExtractor={item => item.title}
 		/>

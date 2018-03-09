@@ -29,12 +29,6 @@ export const styles = StyleSheet.create({
 		marginTop: 15
 	},
 
-	h2: {
-		fontFamily: fontMain,
-		marginTop: 8,
-		color: purple
-	},
-
 	text: {
 		color: nearBlack,
 		marginTop: 5
