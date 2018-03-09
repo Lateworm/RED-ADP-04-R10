@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 
 // import presentation components
-import { Text, Animated, Easing, TouchableHighlight, View } from "react-native";
+import {
+	Text,
+	Animated,
+	LayoutAnimation,
+	Platform,
+	TouchableHighlight,
+	UIManager,
+	View
+} from "react-native";
 import PropTypes from "prop-types";
 import { styles } from "./styles";
 import { typography, colors } from "../../config/styles";
@@ -13,6 +21,10 @@ export default class ConductItem extends Component {
 		this.state = {
 			showDescription: false
 		};
+		if (Platform.OS === "android") {
+			UIManager.setLayoutAnimationEnabledExperimental &&
+				UIManager.setLayoutAnimationEnabledExperimental(true);
+		}
 	}
 
 	static propTypes = {
@@ -23,23 +35,29 @@ export default class ConductItem extends Component {
 	toggleText = () => {
 		const { showDescription } = this.state;
 		this.setState({
-			showDescription: !showDescription
+			showDescription: !showDescription,
+			descriptionSlide: new Animated.Value(0) // a distance for the description to slide out??
 		});
 	};
 
 	render() {
 		const { title, description } = this.props;
+		LayoutAnimation.easeInEaseOut();
 		return (
 			<View>
 				<TouchableHighlight
 					onPress={this.toggleText}
 					underlayColor={"transparent"}
 				>
-					<Text style={styles.h2}>+ {title}</Text>
+					<Text style={styles.h2}>
+						{this.state.showDescription ? "-  " : "+  "}
+						{title}
+					</Text>
 				</TouchableHighlight>
-				{this.state.showDescription ? (
-					<Text style={styles.text}>{description}</Text>
-				) : null}
+
+				{this.state.showDescription && (
+					<Animated.Text style={styles.text}>{description}</Animated.Text>
+				)}
 			</View>
 		);
 	}
