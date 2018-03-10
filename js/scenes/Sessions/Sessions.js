@@ -43,22 +43,27 @@ const Sessions = ({ speaker, session, faves, dispatch }) => {
 				{moment.unix(session.start_time).format("LT")}
 			</Text>
 			<Text style={[styles.marginLR]}>{session.description}</Text>
-			<Text style={[styles.h2, styles.marginLR]}>Presented By:</Text>
 
-			<TouchableHighlight
-				style={[styles.marginLR]}
-				underlayColor={colors.lightGrey}
-				onPress={() => goToSpeaker(speaker)}
-			>
+			{speaker && (
 				<View>
-					<Image
-						style={styles.image}
-						resizeMode={"contain"}
-						source={{ uri: speaker.image }}
-					/>
-					<Text>{speaker.name}</Text>
+					<Text style={[styles.h2, styles.marginLR]}>Presented By:</Text>
+					<TouchableHighlight
+						style={[styles.marginLR]}
+						underlayColor={colors.lightGrey}
+						onPress={() => goToSpeaker(speaker)}
+					>
+						<View>
+							<Image
+								style={styles.image}
+								resizeMode={"contain"}
+								source={{ uri: speaker.image }}
+							/>
+
+							<Text>{speaker.name}</Text>
+						</View>
+					</TouchableHighlight>
 				</View>
-			</TouchableHighlight>
+			)}
 
 			<View style={[styles.hr, styles.marginLR]} />
 
