@@ -1,7 +1,6 @@
 import { StyleSheet } from "react-native";
 import { typography, colors } from "../../config/styles";
-const { black, white, mediumGrey } = colors;
-const { fontMain } = typography;
+const { black, white } = colors;
 
 export const styles = StyleSheet.create({
 	h1container: {

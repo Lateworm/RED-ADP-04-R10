@@ -10,7 +10,6 @@ class SpeakersContainer extends Component {
 	};
 
 	render() {
-		console.log("speaker:", speaker);
 		const { speaker } = this.props;
 		return <Speakers speaker={speaker} />;
 	}

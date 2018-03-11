@@ -12,7 +12,7 @@ import {
 import Icon from "react-native-vector-icons/Ionicons";
 import LinearGradient from "react-native-linear-gradient";
 import { colors, typography } from "../config/styles.js";
-const { black, white, mediumGrey, lightGrey, red, purple } = colors;
+const { white, mediumGrey, lightGrey, red, purple } = colors;
 
 const { windowWidth } = Dimensions.get("window"); // https://facebook.github.io/react-native/docs/dimensions.html
 
@@ -52,9 +52,7 @@ class NavigationLayout extends Component {
 					// title="Schedule"
 					renderTitle={isSelected => this.renderTitle(isSelected, "Schedule")}
 					selectedStyle={styles.selectedItemStyle}
-					renderIcon={(isSelected, iconName) =>
-						this.renderIcon(isSelected, "calendar")
-					}
+					renderIcon={isSelected => this.renderIcon(isSelected, "calendar")}
 				>
 					<StackNav
 						id="schedule"
@@ -68,9 +66,7 @@ class NavigationLayout extends Component {
 					// title="Faves"
 					renderTitle={isSelected => this.renderTitle(isSelected, "Faves")}
 					selectedStyle={styles.selectedItemStyle}
-					renderIcon={(isSelected, iconName) =>
-						this.renderIcon(isSelected, "heart")
-					}
+					renderIcon={isSelected => this.renderIcon(isSelected, "heart")}
 				>
 					<StackNav
 						id="faves"
@@ -84,7 +80,7 @@ class NavigationLayout extends Component {
 					// title="About"
 					renderTitle={isSelected => this.renderTitle(isSelected, "About")}
 					selectedStyle={styles.selectedItemStyle}
-					renderIcon={(isSelected, iconName) =>
+					renderIcon={isSelected =>
 						this.renderIcon(isSelected, "information-circle")
 					}
 				>

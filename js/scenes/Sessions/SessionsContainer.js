@@ -25,7 +25,6 @@ class SessionsContainer extends Component {
 
 	render() {
 		const { speakerData, isLoading, faves } = this.props;
-		console.log(faves);
 		return (
 			<Sessions
 				session={this.props.route.params.session}
@@ -40,11 +39,12 @@ class SessionsContainer extends Component {
 SessionsContainer.propTypes = {
 	dispatch: PropTypes.func.isRequired,
 	faves: PropTypes.array.isRequired,
-	isLoading: PropTypes.bool.isRequired
+	isLoading: PropTypes.bool.isRequired,
+	route: PropTypes.object.isRequired,
+	speakerData: PropTypes.object // not required because some sessions do not have a speaker
 };
 
 const mapStateToProps = state => {
-	console.log(state);
 	return {
 		speakerData: state.speaker.speakerData,
 		faves: state.faves.faves,

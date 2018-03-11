@@ -3,18 +3,15 @@ import PropTypes from "prop-types";
 
 // import presentation components
 import {
-	Animated,
 	FlatList,
 	Image,
-	Text,
 	ScrollView,
 	StatusBar,
+	Text,
 	View
 } from "react-native";
 import { styles } from "./styles";
 import ConductItem from "../../components/ConductItem/ConductItem";
-import { colors, typography } from "../../config/styles.js";
-const { black, white, mediumGrey, red, purple } = colors;
 
 const About = ({ data }) => (
 	<ScrollView style={styles.view}>

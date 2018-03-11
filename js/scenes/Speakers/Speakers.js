@@ -34,11 +34,7 @@ const Speakers = ({ speaker }) => (
 			<Text style={[styles.h2]}>{speaker.name}</Text>
 			<Text style={[styles.marginLR, styles.text]}>{speaker.bio}</Text>
 			<GradatedButton
-				onPress={() =>
-					Linking.openURL(`${speaker.url}`).catch(err =>
-						console.error("An error occurred", err)
-					)
-				}
+				onPress={() => Linking.openURL(`${speaker.url}`)}
 				title="Read More on Wikipedia"
 			/>
 		</ScrollView>

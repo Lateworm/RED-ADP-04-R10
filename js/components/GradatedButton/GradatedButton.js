@@ -1,17 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 // import presentation components
-import {
-	Button,
-	Image,
-	ScrollView,
-	Text,
-	TouchableHighlight,
-	View
-} from "react-native";
+import { Text, TouchableHighlight, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { styles } from "./styles";
-import { typography, colors } from "../../config/styles";
+import { colors } from "../../config/styles";
 const { purple, blue } = colors;
 
 const GradatedButton = ({ title, onPress }) => (
@@ -37,5 +31,10 @@ const GradatedButton = ({ title, onPress }) => (
 		</LinearGradient>
 	</View>
 );
+
+GradatedButton.propTypes = {
+	title: PropTypes.string.isRequired,
+	onPress: PropTypes.func.isRequired
+};
 
 export default GradatedButton;

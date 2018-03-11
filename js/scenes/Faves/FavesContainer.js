@@ -23,9 +23,6 @@ class FavesContainer extends Component {
 
 	render() {
 		const { sessionsData, isLoading, faves } = this.props;
-		console.log("sessionsData ==", sessionsData);
-		console.log("faves ==", faves);
-
 		const faveSessionsData = sessionsData.filter(session => {
 			return faves.indexOf(session.data[0].session_id) >= 0;
 		});

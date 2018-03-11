@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import {
-	Button,
 	Image,
 	ScrollView,
 	Text,
@@ -85,8 +84,9 @@ const Sessions = ({ speaker, session, faves, dispatch }) => {
 
 Sessions.propTypes = {
 	session: PropTypes.object.isRequired,
-	speaker: PropTypes.object.isRequired,
-	faves: PropTypes.array.isRequired
+	speaker: PropTypes.object, // not all sessions have a speaker.
+	faves: PropTypes.array.isRequired,
+	dispatch: PropTypes.func.isRequired
 };
 
 export default connect()(Sessions);

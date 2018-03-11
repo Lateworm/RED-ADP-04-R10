@@ -1,7 +1,6 @@
 import { StyleSheet } from "react-native";
-import { typography, colors } from "../../config/styles";
-const { black, white, mediumGrey } = colors;
-const { fontMain } = typography;
+import { colors } from "../../config/styles";
+const { white } = colors;
 
 export const styles = StyleSheet.create({
 	outerView: {

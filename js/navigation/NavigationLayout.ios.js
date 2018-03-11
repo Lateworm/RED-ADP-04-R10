@@ -50,9 +50,7 @@ class NavigationLayout extends Component {
 					id="schedule"
 					title="Schedule"
 					renderTitle={this.renderTitle}
-					renderIcon={(isSelected, iconName) =>
-						this.renderIcon(isSelected, "calendar")
-					}
+					renderIcon={isSelected => this.renderIcon(isSelected, "calendar")}
 				>
 					<StackNav
 						id="schedule"
@@ -65,9 +63,7 @@ class NavigationLayout extends Component {
 					id="faves"
 					title="Faves"
 					renderTitle={this.renderTitle}
-					renderIcon={(isSelected, iconName) =>
-						this.renderIcon(isSelected, "heart")
-					}
+					renderIcon={isSelected => this.renderIcon(isSelected, "heart")}
 				>
 					<StackNav
 						id="faves"
@@ -80,7 +76,7 @@ class NavigationLayout extends Component {
 					id="about"
 					title="About"
 					renderTitle={this.renderTitle}
-					renderIcon={(isSelected, iconName) =>
+					renderIcon={isSelected =>
 						this.renderIcon(isSelected, "information-circle")
 					}
 				>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 // import presentation components
 import {
@@ -10,10 +11,7 @@ import {
 	UIManager,
 	View
 } from "react-native";
-import PropTypes from "prop-types";
 import { styles } from "./styles";
-import { typography, colors } from "../../config/styles";
-const { purple, blue } = colors;
 
 export default class ConductItem extends Component {
 	constructor() {
